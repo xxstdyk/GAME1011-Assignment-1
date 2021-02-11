@@ -1,5 +1,6 @@
 #include <fstream>
 #include <vector>
+#include <ctime>
 
 #include "Survey.h"
 #include "Pools.h"
@@ -40,6 +41,8 @@ int main() {
 		istream.close();
 	}
 
+	srand(std::time(NULL));
+
 	int numParticipants; // put the number of participants in here
 
 	std::cout << "Welcome." << std::endl;
@@ -49,23 +52,47 @@ int main() {
 
 	Util::ClearScreen();
 
+	Person **tmp_arr = new Person*[numParticipants];
+	
 	for (int i = 0; i < numParticipants; ++i) {
-		// generate participants & add them to Survey class
+
+
+		if (rand() % 2) { 
+		
+			GamingStudent *tmp_student = new GamingStudent;
+
+			tmp_student->SetCollege(Pool::COLLEGES[rand() % Pool::NUM_COLLEGES]);
+
+			tmp_arr[i] = tmp_student;
+		} 
+		
+		else { 
+		
+			NonGamingStudent *tmp_student = new NonGamingStudent;
+
+			tmp_arr[i] = tmp_student;
+		}
 	}
 
+	Survey s(tmp_arr, numParticipants);
+
 	int userIn;
-
-
 	std::cout << "Are you ready to process the servey?" << std::endl;
 	std::cout << "[1] Yes\t[2] Exit" << std::endl;
 	Util::GetIntInRange(&userIn, 1, 500);
 
+
 	switch (userIn) { 
 		case 1:
-			// process;
+			s.Process();
+			break;
+
 		case 2:
 			return 1;
 	}
+
+	// TODO:
+	//s.Display();
 
 	return 0;
 

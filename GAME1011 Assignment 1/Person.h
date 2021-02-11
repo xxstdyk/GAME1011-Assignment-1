@@ -50,6 +50,9 @@ class Student : public Person {
 
 	std::string GetProgram() const { return this->m_program; }
 	void SetProgram(const std::string _program) { this->m_program = _program; }
+
+	int GetSemester() const { return this->m_semNum; }
+	void SetSemester(const int _semNum) { this->m_semNum = _semNum; }
 };
 
 // child a of child 1, NonGamingStudent is a Student
@@ -73,8 +76,8 @@ class NonGamingStudent : public Student {
 		return tmpData;
 	}
 
-
 	// Accessors & Mutators
+
 };
 
 // child b of child 1, GamingStudent is a Student
