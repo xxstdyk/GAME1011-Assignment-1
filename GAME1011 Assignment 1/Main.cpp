@@ -38,5 +38,11 @@ int main() {
 
 	// Cass do the menu here please thanks lov u : )
 
+	int numParticipants; // put the number of participants in here
+	
+	for (int i = 0; i < numParticipants; ++i) {
+		
+	}
+
 	return 0;
 }
