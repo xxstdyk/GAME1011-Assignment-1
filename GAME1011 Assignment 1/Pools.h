@@ -75,9 +75,10 @@ namespace Pool {
 	};
 
 	// Hardcoded list of streaming services
-	static const int NUM_STREAMING_SERVICES = 11;
+	static const int NUM_STREAMING_SERVICES = 12;
 	static std::string STREAMING_SERVICES[NUM_STREAMING_SERVICES] = {
 		"Netflix",
+		"Crunchyroll",
 		"Prime Video",
 		"Crave",
 		"HBO Max",

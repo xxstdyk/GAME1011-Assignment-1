@@ -23,14 +23,13 @@ class Person {
 	public:
 	// Pure virtual function to make the class abstract
 	virtual SurveyData GetInfo() = 0;
-	
+
 	// Accessors & Mutators
 	std::string GetName() const { return this->m_name; }
 	void SetName(const std::string _name) { this->m_name = _name; }
 
 	int GetAge() const { return this->m_age; }
 	void SetAge(int _age) { this->m_age = _age; }
-
 };
 
 // child 1 of base class, Student is a Person
@@ -64,8 +63,8 @@ class NonGamingStudent : public Student {
 
 	public:
 	// GetInfo virtual function override
-	SurveyData GetInfo() override { 
-	
+	SurveyData GetInfo() override {
+
 		SurveyData tmpData;
 
 		tmpData.m_isGamer = false;
@@ -77,7 +76,11 @@ class NonGamingStudent : public Student {
 	}
 
 	// Accessors & Mutators
+	std::string GetService() const { return this->m_streamingService; }
+	void SetService(const std::string _service) { this->m_streamingService = _service; }
 
+	int GetHours() const { return this->m_hoursNotGaming; }
+	void SetHours(const int _hours) { this->m_hoursNotGaming = _hours; }
 };
 
 // child b of child 1, GamingStudent is a Student
@@ -90,7 +93,7 @@ class GamingStudent : public Student {
 	public:
 	// GetInfo virtual function override
 	SurveyData GetInfo() override {
-		
+
 		SurveyData tmpData;
 
 		tmpData.m_isGamer = true;
@@ -102,6 +105,11 @@ class GamingStudent : public Student {
 	}
 
 	// Accessors & Mutators
+	std::string GetDevice() const { return this->m_device; }
+	void SetDevice(const std::string _device) { this->m_device = _device; };
+
+	int GetHours() const { return this->m_hoursGaming; }
+	void SetHours(const int _hours) { this->m_hoursGaming = _hours; }
 };
 
 #endif

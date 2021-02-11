@@ -6,42 +6,37 @@
 #include "Pools.h"
 
 // you gotta at least let me use it for this it's not even one of the requirements !
-std::vector<std::string> first_names;
-std::vector<std::string> last_names;
-std::vector<std::string> names;
+std::vector<std::string> first_names, last_names, names;
 
 int main() {
 
-	{
-		std::ifstream istream;
+	std::ifstream istream;
 
-		// Reading in a list of first names
-		istream.open("names.txt");
+	// Reading in a list of first names
+	istream.open("names.txt");
 
-		if (istream.is_open()) {
-			std::string name;
-			while (getline(istream, name))
-				first_names.push_back(name);
+	if (istream.is_open()) {
+		std::string name;
+		while (getline(istream, name))
+			first_names.push_back(name);
 
-		} else
-			std::cerr << "Names file not found." << std::endl;
+	} else
+		std::cerr << "Names file not found." << std::endl;
 
-		istream.close();
+	istream.close();
 
-		// Reading in a list of last names
-		istream.open("last-names.txt");
+	// Reading in a list of last names
+	istream.open("last-names.txt");
 
-		if (istream.is_open()) {
-			std::string lastName;
-			while (getline(istream, lastName))
-				last_names.push_back(lastName);
+	if (istream.is_open()) {
+		std::string lastName;
+		while (getline(istream, lastName))
+			last_names.push_back(lastName);
 
-		} else
-			std::cerr << "Last Names file not found." << std::endl;
+	} else
+		std::cerr << "Last Names file not found." << std::endl;
 
-		istream.close();
-
-	}
+	istream.close();
 
 	srand(std::time(NULL));
 
@@ -60,14 +55,16 @@ int main() {
 
 	Person **tmp_arr = new Person * [numParticipants];
 
+	// TODO:
+	// Randomly generate numParticipants random students
 	for (int i = 0; i < numParticipants; ++i) {
 
 		if (rand() % 2) {
 
 			GamingStudent *tmp_student = new GamingStudent;
 
+			// set values here
 			tmp_student->SetName(names[i]);
-
 			tmp_student->SetCollege(Pool::COLLEGES[rand() % Pool::NUM_COLLEGES]);
 
 			tmp_arr[i] = tmp_student;
@@ -77,31 +74,29 @@ int main() {
 
 			NonGamingStudent *tmp_student = new NonGamingStudent;
 
+			// set values here
+
 			tmp_arr[i] = tmp_student;
 		}
 	}
 
-	Survey s(tmp_arr, numParticipants);
+	Survey survey(tmp_arr, numParticipants);
 
 	int userIn;
 	std::cout << "Are you ready to process the servey?" << std::endl;
 	std::cout << "[1] Yes\t[2] Exit" << std::endl;
 	Util::GetIntInRange(&userIn, 1, 500);
 
-
 	switch (userIn) {
-		case 1:
-			s.Process();
+		case 1: 
+			survey.Process();
+			std::cout << survey << std::endl;
 			break;
 
-		case 2:
-			return 1;
+		case 2: 
+			break;
 	}
 
-	// TODO:
-	//s.Display();
 
 	return 0;
-
-
 }
