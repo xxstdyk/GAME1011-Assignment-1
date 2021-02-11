@@ -1,3 +1,12 @@
+/*
+* GAME1011 - Wally Balaniuc
+* Assignment 1
+* 02/10/2021
+* 
+* Nicholas Oostdyk, 101335730
+* Cassandra Didier, 101128745
+*/
+
 #include <fstream>
 #include <vector>
 #include <ctime>
@@ -96,7 +105,6 @@ int main() {
 		case 2: 
 			break;
 	}
-
 
 	return 0;
 }
