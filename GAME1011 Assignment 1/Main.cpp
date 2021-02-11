@@ -8,10 +8,11 @@
 // you gotta at least let me use it for this it's not even one of the requirements !
 std::vector<std::string> first_names;
 std::vector<std::string> last_names;
+std::vector<std::string> names;
 
 int main() {
 
-	{ 
+	{
 		std::ifstream istream;
 
 		// Reading in a list of first names
@@ -39,6 +40,7 @@ int main() {
 			std::cerr << "Last Names file not found." << std::endl;
 
 		istream.close();
+
 	}
 
 	srand(std::time(NULL));
@@ -52,22 +54,27 @@ int main() {
 
 	Util::ClearScreen();
 
-	Person **tmp_arr = new Person*[numParticipants];
-	
+	// Generate names of all the people
+	for (int i = 0; i < numParticipants; ++i)
+		names.push_back(first_names[rand() % first_names.size()] + " " + last_names[rand() % last_names.size()]);
+
+	Person **tmp_arr = new Person * [numParticipants];
+
 	for (int i = 0; i < numParticipants; ++i) {
 
+		if (rand() % 2) {
 
-		if (rand() % 2) { 
-		
 			GamingStudent *tmp_student = new GamingStudent;
+
+			tmp_student->SetName(names[i]);
 
 			tmp_student->SetCollege(Pool::COLLEGES[rand() % Pool::NUM_COLLEGES]);
 
 			tmp_arr[i] = tmp_student;
-		} 
-		
-		else { 
-		
+		}
+
+		else {
+
 			NonGamingStudent *tmp_student = new NonGamingStudent;
 
 			tmp_arr[i] = tmp_student;
@@ -82,7 +89,7 @@ int main() {
 	Util::GetIntInRange(&userIn, 1, 500);
 
 
-	switch (userIn) { 
+	switch (userIn) {
 		case 1:
 			s.Process();
 			break;
