@@ -1,6 +1,9 @@
-#include "Survey.h"
 #include <fstream>
 #include <vector>
+
+#include "Pools.h"
+#include "Survey.h"
+
 
 // you gotta at least let me use it for this it's not even one of the requirements !
 std::vector<std::string> first_names;
@@ -41,7 +44,7 @@ int main() {
 	int numParticipants; // put the number of participants in here
 	
 	for (int i = 0; i < numParticipants; ++i) {
-		
+
 	}
 
 	return 0;

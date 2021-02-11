@@ -6,7 +6,19 @@
 
 class Survey {
 
+	private:
+	Person **m_studentArray;
 
+	public:
+
+	// Constructor
+	Survey() { 
+	
+	}
+
+	void Process() { 
+	
+	}
 };
 
 #endif
