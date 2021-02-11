@@ -51,6 +51,23 @@ class Util {
 			GetInt(_val);
 		}
 	}
+
+	/// <summary>
+	/// Clears the consol and flushes
+	/// </summary>
+	static void ClearScreen() {
+		system("CLS");
+		std::cout << std::flush;
+	}
+
+	/// <summary>
+	/// Waits for user's permission to continue and clear the screen
+	/// </summary>
+	static void PauseClear() {
+		system("PAUSE");
+		ClearScreen();
+	}
+
 };
 
 #endif
