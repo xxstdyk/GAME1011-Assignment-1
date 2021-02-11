@@ -53,7 +53,7 @@ class Util {
 	}
 
 	/// <summary>
-	/// Clears the consol and flushes
+	/// Clears the console and flushes
 	/// </summary>
 	static void ClearScreen() {
 		system("CLS");
