@@ -75,6 +75,9 @@ int main() {
 			// set values here
 			tmp_student->SetName(names[i]);
 			tmp_student->SetCollege(Pool::COLLEGES[rand() % Pool::NUM_COLLEGES]);
+			tmp_student->SetDevice(Pool::GAMING_DEVICES[rand() % Pool::NUM_GAMING_DEVICES]);
+			tmp_student->SetAge(rand() % 40 + 17);
+			tmp_student->SetHours(rand() % 50 + 1);
 
 			tmp_arr[i] = tmp_student;
 		}
@@ -83,7 +86,11 @@ int main() {
 
 			NonGamingStudent *tmp_student = new NonGamingStudent;
 
-			// set values here
+			tmp_student->SetName(names[i]);
+			tmp_student->SetCollege(Pool::COLLEGES[rand() % Pool::NUM_COLLEGES]);
+			tmp_student->SetService(Pool::STREAMING_SERVICES[rand() % Pool::NUM_STREAMING_SERVICES]);
+			tmp_student->SetAge(rand() % 40 + 17);
+			tmp_student->SetHours(rand() % 50 + 1);
 
 			tmp_arr[i] = tmp_student;
 		}

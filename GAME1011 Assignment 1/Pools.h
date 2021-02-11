@@ -75,7 +75,7 @@ namespace Pool {
 	};
 
 	// Hardcoded list of streaming services
-	static const int NUM_STREAMING_SERVICES = 12;
+	static const int NUM_STREAMING_SERVICES = 14;
 	static std::string STREAMING_SERVICES[NUM_STREAMING_SERVICES] = {
 		"Netflix",
 		"Crunchyroll",
@@ -89,6 +89,8 @@ namespace Pool {
 		"Criterion Channel",
 		"CBC Gem",
 		"CTV",
+		"Paramount Plus",
+		"Pornhub"
 	};
 
 	// Hardcoded list of gaming devices

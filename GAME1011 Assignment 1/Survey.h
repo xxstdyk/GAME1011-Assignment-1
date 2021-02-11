@@ -5,7 +5,7 @@
 #include <sstream>
 #include <iostream>
 #include <map>
-
+#include <iomanip>
 #include "Person.h"
 
 class Survey {
@@ -22,7 +22,7 @@ class Survey {
 	// the arrays
 	std::map<std::string, int> m_preferredEntertainmentValues[2]; // tracks how many times each service comes up
 	std::string m_preferredEntertainment[2]; // tracks the top service
-	float m_avgAges[2];
+	int m_avgAges[2];
 	float m_avgHours[2];
 	int m_studentCount[2];
 
@@ -80,11 +80,23 @@ class Survey {
 		}
 	}
 
-	std::string Display() const {
+	std::string Display() const {	//Displays the data to the user
 		std::stringstream ss;
-		// TODO: CASS PLEASE DO THIS
-		// use the stringstream just like you would use cout
-		// ex: ss << "Average Age for Gamers: " m_avgAges[GAMER] << std::endl;
+
+		ss << "Stats for GAMERS" << std::endl;
+		ss << "----------------" << std::endl;
+		ss << std::left << std::setw(25) << "Avgerage Age: " <<  m_avgAges[GAMER] << std::endl;
+		ss << std::left << std::setw(25) << "Average Hours Wasted: " << std::setprecision(2) << m_avgHours[GAMER] << std::endl;
+		ss << std::left << std::setw(25) << "Top Platform: " <<  m_preferredEntertainment[GAMER] << std::endl;
+		ss << std::left << std::setw(25) << "Student Count: " <<  m_studentCount[GAMER] << std::endl;
+
+
+		ss << "\n\nStats for NON-GAMERS" << std::endl;
+		ss << "----------------" << std::endl;
+		ss << std::left << std::setw(25) << "Average Age: "  << m_avgAges[NON_GAMER] << std::endl;
+		ss << std::left << std::setw(25) << "Average Hours Wasted: " << std::setprecision(2) << m_avgHours[NON_GAMER] << std::endl;
+		ss << std::left << std::setw(25) << "Top Platform: "  << m_preferredEntertainment[NON_GAMER] << std::endl;
+		ss << std::left << std::setw(25) << "Student Count: " << m_studentCount[NON_GAMER] << std::endl;
 
 		return ss.str();
 	}
